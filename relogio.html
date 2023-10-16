@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        #relogio {
+            font-size: 48px;
+            color: #000000;
+        }
+    </style>
+</head>
+<body>
+
+<h1>Relógio em tempo real:</h1>
+<p id="relogio"></p>
+
+<script>
+function atualizarHora() {
+  var agora = new Date();
+  var horas = agora.getHours();
+  var minutos = agora.getMinutes();
+  var segundos = agora.getSeconds();
+  
+  horas = horas < 10 ? "0" + horas : horas;
+  minutos = minutos < 10 ? "0" + minutos : minutos;
+  segundos = segundos < 10 ? "0" + segundos : segundos;
+  
+  var tempo = horas + ":" + minutos + ":" + segundos;
+  
+  document.getElementById("relogio").innerText = tempo;
+  
+  setTimeout(atualizarHora, 1000);
+}
+
+atualizarHora();
+</script>
+
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        #listaDeTarefas {
+            font-size: 24px;
+            color: #17D4FE;
+        }
+    </style>
+</head>
+<body>
+
+<h1>Lista de Tarefas:</h1>
+
+<input type="text" id="tarefaInput" placeholder="Nova tarefa...">
+<button onclick="adicionarTarefa()">Adicionar</button>
+
+<ul id="listaDeTarefas">
+</ul>
+
+<script>
+function adicionarTarefa() {
+  var tarefa = document.getElementById("tarefaInput").value;
+  var li = document.createElement("li");
+  li.appendChild(document.createTextNode(tarefa));
+  
+  var btn = document.createElement("button");
+  btn.innerHTML = "Remover";
+  btn.onclick = function() {
+    this.parentElement.remove();
+  }
+  
+  li.appendChild(btn);
+  
+  document.getElementById("listaDeTarefas").appendChild(li);
+}
+</script>
+
+</body>
+</html>

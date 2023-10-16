@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        .button {
+            width: 50px;
+            height: 50px;
+            font-size: 24px;
+        }
+    </style>
+</head>
+<body>
+
+<h1>Calculadora Simples:</h1>
+
+<input type="text" id="resultado" disabled>
+
+<br/>
+
+<button class="button" onclick="adicionarNumero('1')">1</button>
+<button class="button" onclick="adicionarNumero('2')">2</button>
+<button class="button" onclick="adicionarNumero('3')">3</button>
+<button class="button" onclick="adicionarOperador('+')">+</button>
+
+<br/>
+
+<button class="button" onclick="adicionarNumero('4')">4</button>
+<button class="button" onclick="adicionarNumero('5')">5</button>
+<button class="button" onclick="adicionarNumero('6')">6</button>
+<button class="button" onclick="adicionarOperador('-')">-</button>
+
+<br/>
+
+<button class="button" onclick="adicionarNumero('7')">7</button>
+<button class="button" onclick="adicionarNumero('8')">8</button>
+<button class="button" onclick="adicionarNumero('9')">9</button>
+<button class="button" onclick="adicionarOperador('*')">*</button>
+
+<br/>
+
+<button class="button" onclick="limpar()">C</button>
+<button class="button" onclick="adicionarNumero('0')">0</button>
+<button class="button" onclick="calcular()">=</button>
+<button class="button" onclick="adicionarOperador('/')">/</button>
+
+<script>
+var numero = "";
+var operador = "";
+var resultado = "";
+
+function adicionarNumero(num) {
+  numero += num;
+  document.getElementById("resultado").value = numero;
+}
+
+function adicionarOperador(op) {
+  if (operador !== "") calcular();
+  resultado = numero;
+  numero = "";
+  operador = op;
+}
+
+function calcular() {
+  if (operador === "+") resultado = parseFloat(resultado) + parseFloat(numero);
+  else if (operador === "-") resultado -= parseFloat(numero);
+  else if (operador === "*") resultado *= parseFloat(numero);
+  else if (operador === "/") resultado /= parseFloat(numero);
+  
+  numero = resultado.toString();
+  operador = "";
+  
+  document.getElementById("resultado").value = numero;
+}
+
+function limpar() {
+  numero = "";
+  operador = "";
+  resultado = "";
+  
+  document.getElementById("resultado").value = "";
+}
+</script>
+
+</body>
+</html>
+
